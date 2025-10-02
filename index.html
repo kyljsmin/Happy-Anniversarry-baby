@@ -48,18 +48,20 @@
       position: relative;
       z-index: 2;
     }
-    img {
-      max-width: 80%;       /* limit image width */
-      height: auto;         /* keep proportions */
+    /* Letter photo */
+    .letter-box img {
+      width: 250px;  /* smaller letter photo */
+      height: auto;
       border-radius: 15px;
       margin-bottom: 20px;
       display: block;
       margin-left: auto;
-      margin-right: auto;   /* center image */
+      margin-right: auto;
     }
-    /* smaller quiz icons */
+    /* Medium-sized quiz icons */
     .quiz img {
       max-width: 80px;
+      height: auto;
       margin-bottom: 10px;
     }
     /* Falling hearts */
@@ -127,7 +129,7 @@
   <!-- LETTER -->
   <div class="letter">
     <div class="letter-box">
-      <img src="letter-photo.jpg" alt="Us together" style="width:300px;"> <!-- resized letter photo -->
+      <img src="letter-photo.jpg" alt="Us together">
       <h2>To my Den ❤️</h2>
       <p>
         Happy, happy anniversary my love! In just a few days, it’s already our anniversary.  
@@ -183,7 +185,6 @@
         document.querySelector(".letter").style.display = "block";
         startHearts();
 
-        // Try autoplay
         const audio = document.getElementById('bg-music');
         audio.play().catch(()=>{ /* fallback if blocked */ });
       } 
