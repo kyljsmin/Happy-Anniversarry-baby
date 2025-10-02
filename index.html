@@ -172,11 +172,10 @@
     </div>
   </div>
 
-  <!-- Background Music (Lovely Runner OST - Sudden Shower) -->
-  <iframe width="0" height="0" 
-          src="https://www.youtube.com/embed/ESWcsKySnNs?autoplay=1&loop=1&playlist=ESWcsKySnNs" 
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-  </iframe>
+  <!-- Background Music -->
+  <!-- 1️⃣ Save your MP3 as "sudden-shower.mp3" -->
+  <!-- 2️⃣ Put it in the SAME FOLDER as this HTML file -->
+  <audio id="bg-music" src="sudden-shower.mp3" loop></audio>
 
   <script>
     // Show quiz on load
@@ -195,6 +194,10 @@
         document.querySelector(".quiz").style.display = "none";
         document.querySelector(".letter").style.display = "block";
         startHearts();
+
+        // Play MP3 after user click
+        const audio = document.getElementById("bg-music");
+        audio.play();
       } 
       else {
         alert("Oops, try again love 😘");
