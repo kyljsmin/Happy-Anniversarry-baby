@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Anniversary Den ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, pink, white);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #d6336c;
+    }
+    .quiz, .letter {
+      display: none;
+    }
+    .question {
+      margin: 20px;
+      font-size: 18px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff6699;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff3366;
+    }
+    .letter-box {
+      max-width: 700px;
+      background: white;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      color: red;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Happy Anniversary My Love 💖</h1>
+  <p>Answer the quiz to unlock my message for you, Den! 🥰</p>
+
+  <!-- QUIZ -->
+  <div class="quiz">
+    <div class="question" id="q1">
+      <p>1. What year did we first meet? 💭</p>
+      <button onclick="checkAnswer(1, '2023')">2023</button>
+      <button onclick="checkAnswer(1, '2022')">2022</button>
+      <button onclick="checkAnswer(1, '2021')">2021</button>
+    </div>
+
+    <div class="question" id="q2" style="display:none;">
+      <p>2. What grade level were we in when we started knowing each other? 📚</p>
+      <button onclick="checkAnswer(2, 'Grade 11')">Grade 11</button>
+      <button onclick="checkAnswer(2, 'Grade 12')">Grade 12</button>
+      <button onclick="checkAnswer(2, 'College')">College</button>
+    </div>
+
+    <div class="question" id="q3" style="display:none;">
+      <p>3. Who is my one and only lovie? ❤️</p>
+      <button onclick="checkAnswer(3, 'Den')">Den</button>
+      <button onclick="checkAnswer(3, 'Other')">Other</button>
+      <button onclick="checkAnswer(3, 'Secret')">Secret</button>
+    </div>
+  </div>
+
+  <!-- LETTER -->
+  <div class="letter">
+    <div class="letter-box">
+      <h2>To my Den ❤️</h2>
+      <p>
+        Happy happy anniversary, my love! In a few days it’s our anniversary na.  
+        Sorry if I don’t have a physical gift this time, kaya eto muna ginawa ko for you.  
+        Love, mag-iisang taon na tayo — sobrang bilis ng panahon. But it’s not just 1 year together,  
+        it’s been about 2 years since 2023 pa when we started Grade 11. Those 2 years were so  
+        challenging for both of us. We went through misunderstandings, issues, and struggles —  
+        but kahit na gano’n, we always found a way to choose each other.  
+      </p>
+      <p>
+        I’m sorry love for my shortcomings — for not being consistent enough, for making you feel  
+        unappreciated sometimes. Please know I really appreciate everything you do: from the flowers  
+        you gave me, to your patience and constant reminders. I know I’ve made you tired at times,  
+        but I promise to change and do better. I will work harder to love you the way you deserve  
+        — to treat you right and bring back our happiest moments.  
+      </p>
+      <p>
+        Thank you for being the best girlfriend — caring, loving, understanding. You are my  
+        girlfriend, bestfriend, my safe place, and my everything. I love you so much my baby,  
+        my love, my Den, my Denden ko, my Lovie, and my Jhiejhiemon 💕  
+      </p>
+      <h3>Forever yours,  
+      <br>Kyle 💖</h3>
+    </div>
+  </div>
+
+  <!-- Background Music (Lovely Runner OST - Sudden Shower) -->
+  <iframe width="0" height="0" 
+          src="https://www.youtube.com/embed/ESWcsKySnNs?autoplay=1&loop=1&playlist=ESWcsKySnNs" 
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+  </iframe>
+
+  <script>
+    // Show quiz on load
+    document.querySelector(".quiz").style.display = "block";
+
+    function checkAnswer(question, answer) {
+      if (question === 1 && answer === "2023") {
+        document.getElementById("q1").style.display = "none";
+        document.getElementById("q2").style.display = "block";
+      } 
+      else if (question === 2 && answer === "Grade 11") {
+        document.getElementById("q2").style.display = "none";
+        document.getElementById("q3").style.display = "block";
+      } 
+      else if (question === 3 && answer === "Den") {
+        document.querySelector(".quiz").style.display = "none";
+        document.querySelector(".letter").style.display = "block";
+        startHearts();
+        // Music is autoplayed via iframe, no need for play()
+      } 
+      else {
+        alert("Oops, try again love 😘");
+      }
+    }
+
+    // Falling hearts animation
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }, 300);
+    }
+  </script>
+</body>
+</html
