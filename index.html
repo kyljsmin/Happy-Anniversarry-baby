@@ -166,9 +166,7 @@ function checkAnswer(question, answer) {
 function fadeInParagraphs() {
   const paragraphs = document.querySelectorAll('.letter-box p');
   paragraphs.forEach((p, i) => {
-    setTimeout(() => {
-      p.classList.add('show');
-    }, i * 500);
+    setTimeout(() => { p.classList.add('show'); }, i * 500);
   });
 }
 
@@ -182,4 +180,5 @@ document.getElementById('envelope').addEventListener('click', function(){
 
   // Show message
   msg.style.display = 'block';
- 
+  msg.style.opacity = 0;
+  msg.style.transition = '
