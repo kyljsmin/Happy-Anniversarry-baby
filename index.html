@@ -61,6 +61,15 @@
         transform: translateY(100vh);
       }
     }
+    /* Play Music Button */
+    #play-music-btn {
+      display: none;
+      margin-top: 20px;
+      background-color: #ff99cc;
+    }
+    #play-music-btn:hover {
+      background-color: #ff66aa;
+    }
   </style>
 </head>
 <body>
@@ -169,12 +178,13 @@
       </p>
       <h3>Forever yours,  
       <br>Kyle 💖</h3>
+
+      <!-- Play Music Button (optional) -->
+      <button id="play-music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
     </div>
   </div>
 
   <!-- Background Music -->
-  <!-- 1️⃣ Save your MP3 as "sudden-shower.mp3" -->
-  <!-- 2️⃣ Put it in the SAME FOLDER as this HTML file -->
   <audio id="bg-music" src="sudden-shower.mp3" loop></audio>
 
   <script>
@@ -195,9 +205,13 @@
         document.querySelector(".letter").style.display = "block";
         startHearts();
 
-        // Play MP3 after user click
+        // Try to play music
         const audio = document.getElementById("bg-music");
-        audio.play();
+        const playBtn = document.getElementById("play-music-btn");
+        audio.play().catch(() => {
+          // Show play button if autoplay is blocked
+          playBtn.style.display = "inline-block";
+        });
       } 
       else {
         alert("Oops, try again love 😘");
@@ -222,3 +236,4 @@
   </script>
 </body>
 </html>
+
