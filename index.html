@@ -13,9 +13,11 @@
     padding: 0;
     overflow-x: hidden;
   }
+
   h1 { color: #d6336c; margin-top: 20px; }
   .quiz, .letter { display: none; }
   .question { margin: 20px; font-size: 18px; }
+
   button {
     margin: 5px; padding: 10px 20px; font-size: 16px;
     border: none; border-radius: 10px;
@@ -23,6 +25,7 @@
     transition: 0.3s;
   }
   button:hover { background-color: #ff3366; }
+
   .letter-box {
     max-width: 700px;
     background: #fff0f5; padding: 20px; margin: 30px auto;
@@ -42,43 +45,29 @@
 
   /* Quiz images */
   .quiz img {
-    width: 200px; /* increased size */
+    width: 200px; 
     height: auto;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px;
   }
 
-  .heart, .sparkle, #final-heart { 
-    position: fixed; top: -10px; font-size: 24px; z-index: 1; 
-    animation-name: fall, sway, fadeOut; 
-    animation-timing-function: linear, ease-in-out, linear; 
-    animation-iteration-count: infinite; 
-  }
-  .heart { color: red; }
-  .sparkle { color: #fffacd; font-size: 14px; }
-
-  @keyframes fall { to { transform: translateY(100vh); } }
-  @keyframes sway { 0% { transform: translateX(0); } 50% { transform: translateX(20px); } 100% { transform: translateX(0); } }
-  @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
-
   #play-music-btn {
     display: inline-block; margin: 20px auto; background-color: #ff99cc;
   }
   #play-music-btn:hover { background-color: #ff66aa; }
 
-  #final-heart {
-    font-size: 50px; opacity: 0;
-    transition: all 1.5s ease; top: 40%; left: 50%;
-    transform: translate(-50%, -50%) scale(0); z-index: 5; color: #ff3366;
-  }
-
   #invitation-msg {
     display: none; font-weight: bold; font-size: 18px; margin-top:10px;
   }
-  #envelope { width: 80px; cursor:pointer; margin-top: 20px; }
+  #envelope { 
+    width: 100px; /* bigger envelope */
+    cursor:pointer; 
+    margin-top: 20px; 
+    display: block;
+    margin-left: auto; margin-right: auto;
+  }
 
-  /* Envelope bounce animation */
   @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-15px); }
@@ -140,19 +129,15 @@
     <p>This time, I will make things right and treat you right — the way you’ve always wanted and deserved. I’m sorry for being an unefforted boyfriend and for making you feel unappreciated. I’m man enough to admit that I really messed up in the past. But I will make it up to you, love. I truly promise to fix myself. I’m sorry for not loving you hard enough.</p>
     <p>Lastly, love, thank you for being the best girlfriend ever — so caring, loving, and understanding. You’re an all-arounder, love. You can be the best girlfriend, my best friend, my crying shoulder, my rant buddy, my everything.</p>
     <p>I promise to make you feel safe with me, love. I’ll always protect you. Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.</p>
-    <p>I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejhiemon — your first nickname from me. ❤️</p>
 
     <!-- Envelope for invitation -->
-    <div style="text-align:center;">
-      <img src="envelope.png" id="envelope" alt="Envelope">
-      <p id="invitation-msg">
-        Let’s celebrate our anniversary outside when we are both free. Let’s eat out, it’s my treat — I got it all planned. I love you so much ❤️
-      </p>
-    </div>
+    <img src="envelope.png" id="envelope" alt="Envelope">
+    <p id="invitation-msg">
+      Let’s celebrate our anniversary outside when we are both free. Let’s eat out, it’s my treat — I got it all planned. I love you so much ❤️
+    </p>
   </div>
 </div>
 
-<div id="final-heart">I love you, Den ❤️</div>
 <audio id="bg-music" src="sudden-shower.mp3" loop></audio>
 
 <script>
@@ -172,29 +157,9 @@ function checkAnswer(question, answer) {
     document.querySelector(".letter").style.display = "block";
     const audio = document.getElementById('bg-music');
     audio.play().catch(()=>{});
-    startHeartsAndSparkles();
     fadeInParagraphs();
   } 
   else { alert("Oops, try again love 😘"); }
-}
-
-function startHeartsAndSparkles() {
-  function createHeartOrSparkle() {
-    const div = document.createElement("div");
-    if(Math.random() < 0.7){ div.classList.add("heart"); } 
-    else { div.classList.add("sparkle"); }
-    div.style.left = Math.random() * 100 + "vw";
-    div.style.fontSize = (15 + Math.random()*20) + "px";
-    div.style.animationDuration = (6 + Math.random()*4) + "s, " + (2 + Math.random()*2) + "s, " + (6 + Math.random()*4) + "s";
-    div.style.transform = `rotate(${Math.random()*360}deg)`;
-    document.body.appendChild(div);
-    setTimeout(() => div.remove(), 10000);
-  }
-  let interval = setInterval(createHeartOrSparkle, 600);
-  setTimeout(() => {
-    clearInterval(interval);
-    setInterval(createHeartOrSparkle, 300);
-  }, 5000);
 }
 
 function fadeInParagraphs() {
@@ -202,7 +167,6 @@ function fadeInParagraphs() {
   paragraphs.forEach((p, i) => {
     setTimeout(() => {
       p.classList.add('show');
-      if(i === paragraphs.length-1) showFinalHeart();
     }, i * 500);
   });
 
@@ -211,13 +175,6 @@ function fadeInParagraphs() {
     const envelope = document.getElementById('envelope');
     envelope.classList.add('bounce');
   }, paragraphs.length * 500);
-}
-
-function showFinalHeart() {
-  const heart = document.getElementById('final-heart');
-  heart.style.opacity = 1;
-  heart.style.transform = "translate(-50%, -50%) scale(1.2)";
-  setTimeout(() => { heart.style.transform = "translate(-50%, -50%) scale(1)"; }, 1500);
 }
 
 // Envelope click
