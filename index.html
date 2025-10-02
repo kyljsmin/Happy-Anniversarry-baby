@@ -71,7 +71,7 @@
     transition: transform 0.6s ease;
   }
   #envelope.open { 
-    transform: translateY(-10px) rotateX(180deg); 
+    transform: translateY(-20px) scale(1.2); 
   }
 
 </style>
@@ -132,7 +132,7 @@
     <p>I promise to make you feel safe with me, love. I’ll always protect you. Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.</p>
 
     <!-- Envelope for invitation -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Envelope_icon.png" id="envelope" alt="Envelope">
+    <img src="https://i.pinimg.com/originals/86/55/42/8655424275723776.png" id="envelope" alt="Envelope">
     <p id="invitation-msg">
       Let’s celebrate our anniversary outside when we are both free. Let’s eat out, it’s my treat — I got it all planned. I love you so much ❤️
     </p>
@@ -182,10 +182,4 @@ document.getElementById('envelope').addEventListener('click', function(){
 
   // Show message
   msg.style.display = 'block';
-  msg.style.opacity = 0;
-  msg.style.transition = 'opacity 1s ease-in-out';
-  setTimeout(()=>{ msg.style.opacity = 1; }, 50);
-});
-</script>
-</body>
-</html>
+ 
