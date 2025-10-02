@@ -5,75 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Anniversary Den ❤️</title>
 <style>
-  body {
+body {
     font-family: Arial, sans-serif;
     text-align: center;
     background: linear-gradient(to bottom, #ffe0f0, #ffffff);
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-  }
-
-  h1 { color: #d6336c; margin-top: 20px; }
-  .quiz, .letter { display: none; }
-  .question { margin: 20px; font-size: 18px; }
-
-  button {
+}
+h1 { color: #d6336c; margin-top: 20px; }
+.quiz, .letter { display: none; }
+.question { margin: 20px; font-size: 18px; }
+button {
     margin: 5px; padding: 10px 20px; font-size: 16px;
     border: none; border-radius: 10px;
     background-color: #ff6699; color: white; cursor: pointer;
-    transition: 0.3s;
-  }
-  button:hover { background-color: #ff3366; }
-
-  .letter-box {
-    max-width: 700px;
-    background: #fff0f5; padding: 20px; margin: 30px auto;
-    border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    text-align: left; position: relative; z-index: 2;
-  }
-  .letter-box img {
-    width: 250px; height: auto; border-radius: 15px;
-    margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;
-  }
-  .letter-box p {
-    margin-bottom: 15px; line-height: 1.6;
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .letter-box p.show { opacity: 1; transform: translateY(0); }
-
-  /* Quiz images */
-  .quiz img {
-    width: 200px; 
+}
+button:hover { background-color: #ff3366; }
+.quiz img {
+    width: 200px;
     height: auto;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px;
-  }
-
-  #play-music-btn {
-    display: inline-block; margin: 20px auto; background-color: #ff99cc;
-  }
-  #play-music-btn:hover { background-color: #ff66aa; }
-
-  #invitation-msg {
-    display: none; font-weight: bold; font-size: 18px; margin-top:10px;
-  }
-
-  /* Envelope styling */
-  #envelope { 
-    width: 100px; 
-    cursor:pointer; 
-    margin-top: 20px; 
-    display: block;
-    margin-left: auto; margin-right: auto;
+}
+.letter-box {
+    max-width: 700px;
+    background: #fff0f5; padding: 20px; margin: 30px auto;
+    border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: left;
+}
+.letter-box img {
+    width: 250px; height: auto; border-radius: 15px;
+    margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;
+}
+.letter-box p {
+    margin-bottom: 15px; line-height: 1.6;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.letter-box p.show { opacity: 1; transform: translateY(0); }
+#envelope { 
+    width: 100px; cursor:pointer; margin: 20px auto; display: block;
     transition: transform 0.6s ease;
-  }
-  #envelope.open { 
-    transform: translateY(-20px) scale(1.2); 
-  }
-
+}
+#envelope.open { transform: translateY(-20px) scale(1.2); }
+#invitation-msg { display: none; font-weight: bold; font-size: 18px; margin-top:10px; }
+#play-music-btn { margin: 20px; }
 </style>
 </head>
 <body>
@@ -83,40 +60,34 @@
 
 <button id="play-music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
 
-<!-- QUIZ -->
 <div class="quiz">
   <div class="question" id="q1">
     <img src="quiz1.png" alt="Quiz 1">
     <p>1. What year did we first meet? 💭</p>
-    <button onclick="checkAnswer(1, '2023')">2023</button>
-    <button onclick="checkAnswer(1, '2022')">2022</button>
-    <button onclick="checkAnswer(1, '2021')">2021</button>
+    <button onclick="checkAnswer(1,'2023')">2023</button>
+    <button onclick="checkAnswer(1,'2022')">2022</button>
+    <button onclick="checkAnswer(1,'2021')">2021</button>
   </div>
-
   <div class="question" id="q2" style="display:none;">
     <img src="quiz2.png" alt="Quiz 2">
     <p>2. When was our first kiss? 😘</p>
-    <button onclick="checkAnswer(2, 'October 4')">October 4</button>
-    <button onclick="checkAnswer(2, 'October 3')">October 3</button>
-    <button onclick="checkAnswer(2, 'October 5')">October 5</button>
+    <button onclick="checkAnswer(2,'October 4')">October 4</button>
+    <button onclick="checkAnswer(2,'October 3')">October 3</button>
+    <button onclick="checkAnswer(2,'October 5')">October 5</button>
   </div>
-
   <div class="question" id="q3" style="display:none;">
     <img src="quiz3.png" alt="Quiz 3">
     <p>3. Who is my one and only lovie? ❤️</p>
-    <button onclick="checkAnswer(3, 'Den')">Den</button>
-    <button onclick="checkAnswer(3, 'Other')">Other</button>
-    <button onclick="checkAnswer(3, 'Secret')">Secret</button>
+    <button onclick="checkAnswer(3,'Den')">Den</button>
+    <button onclick="checkAnswer(3,'Other')">Other</button>
+    <button onclick="checkAnswer(3,'Secret')">Secret</button>
   </div>
 </div>
 
-<!-- LETTER -->
 <div class="letter">
   <div class="letter-box">
     <img src="letter-photo.jpg" alt="Us together">
     <h2>To my Den ❤️</h2>
-
-    <!-- Letter paragraphs -->
     <p>Happy, happy anniversary my love! In just a few days, it’s already our anniversary. I’m really sorry, love, because I don’t have a gift to give for this upcoming anniversary of ours. That’s why I made this for you instead.</p>
     <p>Love, mag-iisang taon na tayo — can you believe that? Time really flies so fast. And it’s not just one year of knowing each other, it’s been almost two years already since 2023, right? We started Grade 11 in 2023, and those two years have been so challenging for both of us.</p>
     <p>We went through so much even when we were still just in the “getting to know each other” phase. Those weren’t just mere challenges, love, they were really hard times. It even reached a point where you wanted to stop, I became makulit, we both became toxic, had issues, and so many other things happened.</p>
@@ -130,12 +101,10 @@
     <p>This time, I will make things right and treat you right — the way you’ve always wanted and deserved. I’m sorry for being an unefforted boyfriend and for making you feel unappreciated. I’m man enough to admit that I really messed up in the past. But I will make it up to you, love. I truly promise to fix myself. I’m sorry for not loving you hard enough.</p>
     <p>Lastly, love, thank you for being the best girlfriend ever — so caring, loving, and understanding. You’re an all-arounder, love. You can be the best girlfriend, my best friend, my crying shoulder, my rant buddy, my everything.</p>
     <p>I promise to make you feel safe with me, love. I’ll always protect you. Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.</p>
+    <p>I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejhiemon — your first nickname from me. ❤️</p>
 
-    <!-- Envelope for invitation -->
     <img src="https://i.pinimg.com/originals/86/55/42/8655424275723776.png" id="envelope" alt="Envelope">
-    <p id="invitation-msg">
-      Let’s celebrate our anniversary outside when we are both free. Let’s eat out, it’s my treat — I got it all planned. I love you so much ❤️
-    </p>
+    <p id="invitation-msg">Let’s celebrate our anniversary outside when we are both free. Let’s eat out, it’s my treat — I got it all planned. I love you so much ❤️</p>
   </div>
 </div>
 
@@ -144,41 +113,26 @@
 <script>
 document.querySelector(".quiz").style.display = "block";
 
-function checkAnswer(question, answer) {
-  if (question === 1 && answer === "2023") {
-    document.getElementById("q1").style.display = "none";
-    document.getElementById("q2").style.display = "block";
-  } 
-  else if (question === 2 && answer === "October 4") {
-    document.getElementById("q2").style.display = "none";
-    document.getElementById("q3").style.display = "block";
-  } 
-  else if (question === 3 && answer === "Den") {
-    document.querySelector(".quiz").style.display = "none";
-    document.querySelector(".letter").style.display = "block";
-    const audio = document.getElementById('bg-music');
-    audio.play().catch(()=>{});
-    fadeInParagraphs();
-  } 
-  else { alert("Oops, try again love 😘"); }
+function checkAnswer(q,a){
+    if(q===1 && a==='2023'){ document.getElementById('q1').style.display='none'; document.getElementById('q2').style.display='block'; }
+    else if(q===2 && a==='October 4'){ document.getElementById('q2').style.display='none'; document.getElementById('q3').style.display='block'; }
+    else if(q===3 && a==='Den'){ document.querySelector('.quiz').style.display='none'; document.querySelector('.letter').style.display='block'; fadeInParagraphs(); document.getElementById('bg-music').play().catch(()=>{}); }
+    else{ alert('Oops, try again love 😘'); }
 }
 
-function fadeInParagraphs() {
-  const paragraphs = document.querySelectorAll('.letter-box p');
-  paragraphs.forEach((p, i) => {
-    setTimeout(() => { p.classList.add('show'); }, i * 500);
-  });
+function fadeInParagraphs(){
+    const paragraphs = document.querySelectorAll('.letter-box p');
+    paragraphs.forEach((p,i)=>{ setTimeout(()=>{ p.classList.add('show'); }, i*500); });
 }
 
-// Envelope click animation
-document.getElementById('envelope').addEventListener('click', function(){
-  const envelope = this;
-  const msg = document.getElementById('invitation-msg');
-
-  // Toggle open class
-  envelope.classList.toggle('open');
-
-  // Show message
-  msg.style.display = 'block';
-  msg.style.opacity = 0;
-  msg.style.transition = '
+document.getElementById('envelope').addEventListener('click',function(){
+    this.classList.toggle('open');
+    const msg = document.getElementById('invitation-msg');
+    msg.style.display='block';
+    msg.style.opacity=0;
+    msg.style.transition='opacity 1s ease-in-out';
+    setTimeout(()=>{ msg.style.opacity=1; },50);
+});
+</script>
+</body>
+</html>
