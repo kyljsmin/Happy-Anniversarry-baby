@@ -40,19 +40,20 @@
   }
   .letter-box p.show { opacity: 1; transform: translateY(0); }
 
-  /* Quiz images updated to 100px */
+  /* Quiz images */
   .quiz img {
-    width: 100px;
+    width: 200px; /* increased size */
     height: auto;
     object-fit: cover;
     margin-bottom: 10px;
+    border-radius: 10px;
   }
 
-  .heart, .sparkle, #final-heart {
-    position: fixed; top: -10px; font-size: 24px; z-index: 1;
-    animation-name: fall, sway, fadeOut;
-    animation-timing-function: linear, ease-in-out, linear;
-    animation-iteration-count: infinite;
+  .heart, .sparkle, #final-heart { 
+    position: fixed; top: -10px; font-size: 24px; z-index: 1; 
+    animation-name: fall, sway, fadeOut; 
+    animation-timing-function: linear, ease-in-out, linear; 
+    animation-iteration-count: infinite; 
   }
   .heart { color: red; }
   .sparkle { color: #fffacd; font-size: 14px; }
@@ -62,8 +63,7 @@
   @keyframes fadeOut { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
 
   #play-music-btn {
-    display: inline-block; margin: 20px auto;
-    background-color: #ff99cc;
+    display: inline-block; margin: 20px auto; background-color: #ff99cc;
   }
   #play-music-btn:hover { background-color: #ff66aa; }
 
@@ -77,6 +77,14 @@
     display: none; font-weight: bold; font-size: 18px; margin-top:10px;
   }
   #envelope { width: 80px; cursor:pointer; margin-top: 20px; }
+
+  /* Envelope bounce animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-8px); }
+  }
+  #envelope.bounce { animation: bounce 1s ease-in-out infinite; }
 </style>
 </head>
 <body>
@@ -197,6 +205,12 @@ function fadeInParagraphs() {
       if(i === paragraphs.length-1) showFinalHeart();
     }, i * 500);
   });
+
+  // Add bounce to envelope when letter is fully visible
+  setTimeout(()=>{ 
+    const envelope = document.getElementById('envelope');
+    envelope.classList.add('bounce');
+  }, paragraphs.length * 500);
 }
 
 function showFinalHeart() {
@@ -215,6 +229,5 @@ document.getElementById('envelope').addEventListener('click', function(){
   setTimeout(()=>{ msg.style.opacity = 1; }, 50);
 });
 </script>
-
 </body>
 </html>
