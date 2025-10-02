@@ -33,6 +33,7 @@
       background-color: #ff6699;
       color: white;
       cursor: pointer;
+      transition: 0.3s;
     }
     button:hover {
       background-color: #ff3366;
@@ -48,7 +49,6 @@
       position: relative;
       z-index: 2;
     }
-    /* Letter photo */
     .letter-box img {
       width: 250px;
       height: auto;
@@ -58,34 +58,54 @@
       margin-left: auto;
       margin-right: auto;
     }
-    /* Quiz icons */
+    .letter-box p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .letter-box p.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .quiz img {
-      width: 60px;
-      height: 60px;
+      width: 16px;
+      height: 20px;
       object-fit: cover;
       margin-bottom: 10px;
     }
-    .heart {
+    .heart, .sparkle {
       position: fixed;
       top: -10px;
       font-size: 24px;
-      color: red;
-      animation: fall linear infinite;
       z-index: 1;
+      animation-name: fall, sway, fadeOut;
+      animation-timing-function: linear, ease-in-out, linear;
+      animation-iteration-count: infinite;
     }
-    @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
+    .heart { color: red; }
+    .sparkle { color: #fffacd; font-size: 14px; }
+
+    @keyframes fall { to { transform: translateY(100vh); } }
+    @keyframes sway {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
+      100% { transform: translateX(0); }
     }
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
     #play-music-btn {
       display: inline-block;
       margin: 20px auto;
       background-color: #ff99cc;
     }
-    #play-music-btn:hover {
-      background-color: #ff66aa;
-    }
+    #play-music-btn:hover { background-color: #ff66aa; }
+
   </style>
 </head>
 <body>
@@ -93,7 +113,6 @@
   <h1>💖 Happy Anniversary My Love 💖</h1>
   <p>Answer the quiz to unlock my special letter for you, Den! 🥰</p>
 
-  <!-- Play Music Button -->
   <button id="play-music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
 
   <!-- QUIZ -->
@@ -128,52 +147,38 @@
     <div class="letter-box">
       <img src="letter-photo.jpg" alt="Us together">
       <h2>To my Den ❤️</h2>
-      <p>
-Happy, happy anniversary my love! In just a few days, it’s already our anniversary. I’m really sorry, love, because I don’t have a gift to give for this upcoming anniversary of ours. That’s why I made this for you instead.
-      </p>
-      <p>
-Love, mag-iisang taon na tayo — can you believe that? Time really flies so fast. And it’s not just one year of knowing each other, it’s been almost two years already since 2023, right? We started Grade 11 in 2023, and those two years have been so challenging for both of us.
-      </p>
-      <p>
-We went through so much even when we were still just in the “getting to know each other” phase. Those weren’t just mere challenges, love, they were really hard times. It even reached a point where you wanted to stop, I became makulit, we both became toxic, had issues, and so many other things happened.
-      </p>
-      <p>
-But still, despite all of that, we chose each other, and we chose to love each other. I am so grateful that we’re still together and that we’re about to celebrate our first anniversary.
-      </p>
-      <p>
-Looking back on our journey made me realize that I have so many shortcomings. Love, I’m sorry for not being consistent, for not doing the things I used to do at the start. I hate myself for that, I don’t know why I’ve been forgetting those things that used to be so easy for me to do.
-      </p>
-      <p>
-And love, I’m sorry if sometimes you feel that I don’t love you or don’t appreciate you. Please remember that I really, really appreciate all the things you do — especially the simple ones. Especially the flowers you gave me — I really loved that because you were the only one who ever gave me flowers. And most of all, thank you for always understanding me, and for never-ending reminders.
-      </p>
-      <p>
-I know, love, that you’re also getting tired of always reminding me and making parinig. But I promise you that I will change, okay? I’m sorry for tiring you out with all my mistakes. I’m sorry for pushing you to the point of exhaustion before I change.
-      </p>
-      <p>
-Sorry love if when I make mistakes, I just say sorry and then repeat them again. But I assure you, love, I will put an end to that. I’ll work hard — harder than ever — so we won’t even be talking about these things anymore. Hard enough so it won’t ever be a reason for us to fight again.
-      </p>
-      <p>
-I want to bring out the best version of myself, and I want you to be the woman to experience it, to see it. I want it to be you, love, only you.
-      </p>
-      <p>
-I miss our happy moments, the times when we’d finish a month without a single fight. I miss the old “us,” love, and I promise to bring it back. I’m sorry for making you go through things you should never have experienced.
-      </p>
-      <p>
-This time, I will make things right and treat you right — the way you’ve always wanted and deserved. I’m sorry for being an unefforted boyfriend and for making you feel unappreciated. I’m man enough to admit that I really messed up in the past. But I will make it up to you, love. I truly promise to fix myself. I’m sorry for not loving you hard enough.
-      </p>
-      <p>
-Lastly, love, thank you for being the best girlfriend ever — so caring, loving, and understanding. You’re an all-arounder, love. You can be the best girlfriend, my best friend, my crying shoulder, my rant buddy, my everything.
-      </p>
-      <p>
-I promise to make you feel safe with me, love. I’ll always protect you. Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.
-      </p>
-      <p>
-I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejhiemon — your first nickname from me. ❤️
-      </p>
+
+      <!-- Letter paragraphs -->
+      <p>Happy, happy anniversary my love! In just a few days, it’s already our anniversary. I’m really sorry, love, because I don’t have a gift to give for this upcoming anniversary of ours. That’s why I made this for you instead.</p>
+
+      <p>Love, mag-iisang taon na tayo — can you believe that? Time really flies so fast. And it’s not just one year of knowing each other, it’s been almost two years already since 2023, right? We started Grade 11 in 2023, and those two years have been so challenging for both of us.</p>
+
+      <p>We went through so much even when we were still just in the “getting to know each other” phase. Those weren’t just mere challenges, love, they were really hard times. It even reached a point where you wanted to stop, I became makulit, we both became toxic, had issues, and so many other things happened.</p>
+
+      <p>But still, despite all of that, we chose each other, and we chose to love each other. I am so grateful that we’re still together and that we’re about to celebrate our first anniversary.</p>
+
+      <p>Looking back on our journey made me realize that I have so many shortcomings. Love, I’m sorry for not being consistent, for not doing the things I used to do at the start. I hate myself for that, I don’t know why I’ve been forgetting those things that used to be so easy for me to do.</p>
+
+      <p>And love, I’m sorry if sometimes you feel that I don’t love you or don’t appreciate you. Please remember that I really, really appreciate all the things you do — especially the simple ones. Especially the flowers you gave me — I really loved that because you were the only one who ever gave me flowers. And most of all, thank you for always understanding me, and for never-ending reminders.</p>
+
+      <p>I know, love, that you’re also getting tired of always reminding me and making parinig. But I promise you that I will change, okay? I’m sorry for tiring you out with all my mistakes. I’m sorry for pushing you to the point of exhaustion before I change.</p>
+
+      <p>Sorry love if when I make mistakes, I just say sorry and then repeat them again. But I assure you, love, I will put an end to that. I’ll work hard — harder than ever — so we won’t even be talking about these things anymore. Hard enough so it won’t ever be a reason for us to fight again.</p>
+
+      <p>I want to bring out the best version of myself, and I want you to be the woman to experience it, to see it. I want it to be you, love, only you.</p>
+
+      <p>I miss our happy moments, the times when we’d finish a month without a single fight. I miss the old “us,” love, and I promise to bring it back. I’m sorry for making you go through things you should never have experienced.</p>
+
+      <p>This time, I will make things right and treat you right — the way you’ve always wanted and deserved. I’m sorry for being an unefforted boyfriend and for making you feel unappreciated. I’m man enough to admit that I really messed up in the past. But I will make it up to you, love. I truly promise to fix myself. I’m sorry for not loving you hard enough.</p>
+
+      <p>Lastly, love, thank you for being the best girlfriend ever — so caring, loving, and understanding. You’re an all-arounder, love. You can be the best girlfriend, my best friend, my crying shoulder, my rant buddy, my everything.</p>
+
+      <p>I promise to make you feel safe with me, love. I’ll always protect you. Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.</p>
+
+      <p>I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejhiemon — your first nickname from me. ❤️</p>
     </div>
   </div>
 
-  <!-- Background Music -->
   <audio id="bg-music" src="sudden-shower.mp3" loop></audio>
 
   <script>
@@ -191,26 +196,46 @@ I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejh
       else if (question === 3 && answer === "Den") {
         document.querySelector(".quiz").style.display = "none";
         document.querySelector(".letter").style.display = "block";
-        startHearts();
         const audio = document.getElementById('bg-music');
         audio.play().catch(()=>{});
+        startHeartsAndSparkles();
+        fadeInParagraphs();
       } 
       else {
         alert("Oops, try again love 😘");
       }
     }
 
-    function startHearts() {
-      setInterval(() => {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerText = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
-      }, 300);
+    function startHeartsAndSparkles() {
+      function createHeartOrSparkle() {
+        const div = document.createElement("div");
+        if(Math.random() < 0.7){
+          div.classList.add("heart");
+        } else {
+          div.classList.add("sparkle");
+        }
+        div.style.left = Math.random() * 100 + "vw";
+        div.style.fontSize = (15 + Math.random()*20) + "px";
+        div.style.animationDuration = 
+          (6 + Math.random()*4) + "s, " + (2 + Math.random()*2) + "s, " + (6 + Math.random()*4) + "s";
+        div.style.transform = `rotate(${Math.random()*360}deg)`;
+        document.body.appendChild(div);
+        setTimeout(() => div.remove(), 10000);
+      }
+      let interval = setInterval(createHeartOrSparkle, 600);
+      setTimeout(() => {
+        clearInterval(interval);
+        setInterval(createHeartOrSparkle, 300); // slightly more frequent
+      }, 5000);
+    }
+
+    function fadeInParagraphs() {
+      const paragraphs = document.querySelectorAll('.letter-box p');
+      paragraphs.forEach((p, i) => {
+        setTimeout(() => p.classList.add('show'), i * 500);
+      });
     }
   </script>
+
 </body>
 </html>
