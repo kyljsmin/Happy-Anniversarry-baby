@@ -8,13 +8,14 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background: linear-gradient(to bottom, pink, white);
+      background: linear-gradient(to bottom, #ffe0f0, #ffffff);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
     h1 {
       color: #d6336c;
+      margin-top: 20px;
     }
     .quiz, .letter {
       display: none;
@@ -38,7 +39,7 @@
     }
     .letter-box {
       max-width: 700px;
-      background: white;
+      background: #fff0f5;
       padding: 20px;
       margin: 30px auto;
       border-radius: 15px;
@@ -46,6 +47,11 @@
       text-align: left;
       position: relative;
       z-index: 2;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-bottom: 20px;
     }
     /* Falling hearts */
     .heart {
@@ -61,10 +67,9 @@
         transform: translateY(100vh);
       }
     }
-    /* Play Music Button */
     #play-music-btn {
-      display: none;
-      margin-top: 20px;
+      display: inline-block;
+      margin: 20px auto;
       background-color: #ff99cc;
     }
     #play-music-btn:hover {
@@ -75,25 +80,34 @@
 <body>
 
   <h1>💖 Happy Anniversary My Love 💖</h1>
-  <p>Answer the quiz to unlock my message for you, Den! 🥰</p>
+  <p>Answer the quiz to unlock my special letter for you, Den! 🥰</p>
+
+  <!-- Play Music Button -->
+  <button id="play-music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
 
   <!-- QUIZ -->
   <div class="quiz">
+    <!-- Question 1 -->
     <div class="question" id="q1">
+      <img src="quiz1.png" alt="Quiz 1">
       <p>1. What year did we first meet? 💭</p>
       <button onclick="checkAnswer(1, '2023')">2023</button>
       <button onclick="checkAnswer(1, '2022')">2022</button>
       <button onclick="checkAnswer(1, '2021')">2021</button>
     </div>
 
+    <!-- Question 2 -->
     <div class="question" id="q2" style="display:none;">
-      <p>2. What grade level were we in when we started knowing each other? 📚</p>
-      <button onclick="checkAnswer(2, 'Grade 11')">Grade 11</button>
-      <button onclick="checkAnswer(2, 'Grade 12')">Grade 12</button>
-      <button onclick="checkAnswer(2, 'College')">College</button>
+      <img src="quiz2.png" alt="Quiz 2">
+      <p>2. When was our first kiss? 😘</p>
+      <button onclick="checkAnswer(2, 'October 4')">October 4</button>
+      <button onclick="checkAnswer(2, 'October 3')">October 3</button>
+      <button onclick="checkAnswer(2, 'October 5')">October 5</button>
     </div>
 
+    <!-- Question 3 -->
     <div class="question" id="q3" style="display:none;">
+      <img src="quiz3.png" alt="Quiz 3">
       <p>3. Who is my one and only lovie? ❤️</p>
       <button onclick="checkAnswer(3, 'Den')">Den</button>
       <button onclick="checkAnswer(3, 'Other')">Other</button>
@@ -104,6 +118,7 @@
   <!-- LETTER -->
   <div class="letter">
     <div class="letter-box">
+      <img src="letter-photo.jpg" alt="Us together">
       <h2>To my Den ❤️</h2>
       <p>
         Happy, happy anniversary my love! In just a few days, it’s already our anniversary.  
@@ -126,61 +141,16 @@
         I am so grateful that we’re still together and that we’re about to celebrate our first anniversary.
       </p>
       <p>
-        Looking back on our journey made me realize that I have so many shortcomings.  
-        Love, I’m sorry for not being consistent, for not doing the things I used to do at the start.  
-        I hate myself for that, I don’t know why I’ve been forgetting those things that used to be so easy for me to do.
-      </p>
-      <p>
         And love, I’m sorry if sometimes you feel that I don’t love you or don’t appreciate you.  
         Please remember that I really, really appreciate all the things you do — especially the simple ones.  
         Especially the flowers you gave me — I really loved that because you were the only one who ever gave me flowers.  
         And most of all, thank you for always understanding me, and for never-ending reminders.
       </p>
       <p>
-        I know, love, that you’re also getting tired of always reminding me and making parinig.  
-        But I promise you that I will change, okay?  
-        I’m sorry for tiring you out with all my mistakes.  
-        I’m sorry for pushing you to the point of exhaustion before I change.
-      </p>
-      <p>
-        Sorry love if when I make mistakes, I just say sorry and then repeat them again.  
-        But I assure you, love, I will put an end to that.  
-        I’ll work hard — harder than ever — so we won’t even be talking about these things anymore.  
-        Hard enough so it won’t ever be a reason for us to fight again.
-      </p>
-      <p>
-        I want to bring out the best version of myself, and I want you to be the woman to experience it, to see it.  
-        I want it to be you, love, only you.
-      </p>
-      <p>
-        I miss our happy moments, the times when we’d finish a month without a single fight.  
-        I miss the old “us,” love, and I promise to bring it back.  
-        I’m sorry for making you go through things you should never have experienced.
-      </p>
-      <p>
-        This time, I will make things right and treat you right — the way you’ve always wanted and deserved.  
-        I’m sorry for being an unefforted boyfriend and for making you feel unappreciated.  
-        I’m man enough to admit that I really messed up in the past.  
-        But I will make it up to you, love. I truly promise to fix myself.  
-        I’m sorry for not loving you hard enough.
-      </p>
-      <p>
-        Lastly, love, thank you for being the best girlfriend ever — so caring, loving, and understanding.  
-        You’re an all-arounder, love. You can be the best girlfriend, my best friend, my crying shoulder,  
-        my rant buddy, my everything.
-      </p>
-      <p>
-        I promise to make you feel safe with me, love. I’ll always protect you.  
-        Don’t worry, love, I’ve been taking note of the things you like and the things you don’t.
-      </p>
-      <p>
         I love you so much, my baby, my love, my Den, my Denden, my lovie, and my Jhiejhiemon — your first nickname from me. ❤️
       </p>
       <h3>Forever yours,  
       <br>Kyle 💖</h3>
-
-      <!-- Play Music Button (optional) -->
-      <button id="play-music-btn" onclick="document.getElementById('bg-music').play()">🎵 Play Music</button>
     </div>
   </div>
 
@@ -188,7 +158,6 @@
   <audio id="bg-music" src="sudden-shower.mp3" loop></audio>
 
   <script>
-    // Show quiz on load
     document.querySelector(".quiz").style.display = "block";
 
     function checkAnswer(question, answer) {
@@ -196,7 +165,7 @@
         document.getElementById("q1").style.display = "none";
         document.getElementById("q2").style.display = "block";
       } 
-      else if (question === 2 && answer === "Grade 11") {
+      else if (question === 2 && answer === "October 4") {
         document.getElementById("q2").style.display = "none";
         document.getElementById("q3").style.display = "block";
       } 
@@ -205,20 +174,15 @@
         document.querySelector(".letter").style.display = "block";
         startHearts();
 
-        // Try to play music
-        const audio = document.getElementById("bg-music");
-        const playBtn = document.getElementById("play-music-btn");
-        audio.play().catch(() => {
-          // Show play button if autoplay is blocked
-          playBtn.style.display = "inline-block";
-        });
+        // Try autoplay
+        const audio = document.getElementById('bg-music');
+        audio.play().catch(()=>{ /* fallback if blocked */ });
       } 
       else {
         alert("Oops, try again love 😘");
       }
     }
 
-    // Falling hearts animation
     function startHearts() {
       setInterval(() => {
         const heart = document.createElement("div");
@@ -227,12 +191,13 @@
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
         document.body.appendChild(heart);
-
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
+        setTimeout(() => heart.remove(), 5000);
       }, 300);
     }
+  </script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
