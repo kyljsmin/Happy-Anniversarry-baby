@@ -39,7 +39,14 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
   .letter-box p.show { opacity: 1; transform: translateY(0); }
-  .quiz img { width: 16px; height: 20px; object-fit: cover; margin-bottom: 10px; }
+
+  /* Quiz images updated to 100px */
+  .quiz img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
 
   .heart, .sparkle, #final-heart {
     position: fixed; top: -10px; font-size: 24px; z-index: 1;
